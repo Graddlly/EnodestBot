@@ -4,7 +4,7 @@
   "description": "Discord bot for servers!",
   "main": "index.js",
   "scripts": {
-    "test": "vows --spec"
+    "test": "node . || exit"
   },
   "repository": {
     "type": "git",

@@ -16,10 +16,10 @@ module.exports = {
             return message.reply("Не можете найти этого человека? А зачем тогда репорт? xD").then(m => m.delete(5000));
 
         if (rMember.hasPermission("BAN_MEMBERS") || rMember.user.bot)
-            return message.channel.send("Нельзя сделать репорт на этого участника").then(m => m.delete(5000));
+            return message.channel.send("Нельзя сделать репорт на этого участника!").then(m => m.delete(5000));
 
         if (!args[1])
-            return message.channel.send("Пожалуйста, укажите причину репорта на данного участника").then(m => m.delete(5000));
+            return message.channel.send("Пожалуйста, укажите причину репорта на данного участника...").then(m => m.delete(5000));
 
         const channel = message.guild.channels.find(c => c.name === "reports")
 

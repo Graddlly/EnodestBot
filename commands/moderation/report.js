@@ -6,7 +6,7 @@ module.exports = {
     aliases: ["репорт", "report", "r", "-реп"],
     category: "moderation",
     description: "Отправляет заявку о нарушений правил участником(-ам) администраторам",
-    usage: "<mention, id>",
+    usage: "<mention | id> <line>",
     run: async(client, message, args) => {
         if (message.deletable) message.delete();
 

@@ -5,7 +5,7 @@ module.exports = {
     aliases: ["broadcast", "bc", "сказать", "крикнуть"],
     category: "moderation",
     description: "Быстрое сказание любой фразы",
-    usage: "<usage>",
+    usage: "<embed | bb | qq> [line]",
     run: async(client, message, args) => {
         if (message.deletable) message.delete();
 

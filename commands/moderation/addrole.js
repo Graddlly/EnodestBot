@@ -7,7 +7,7 @@ module.exports = {
     aliases: ["дроль", "добавитьроль", "arole"],
     category: "moderation",
     description: "Добавляет роль участнику сервера",
-    usage: "[<id | mention> <role>]",
+    usage: "<id | mention> <role>",
     run: async(client, message, args) => {
         const logChannel = message.guild.channels.find(c => c.name === "logs") || message.channel;
 

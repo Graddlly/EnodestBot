@@ -31,5 +31,11 @@ module.exports = {
         return message
             .awaitReactions(filter, { max: 1, time: time })
             .then(collected => collected.first() && collected.first().emoji.name);
+    },
+
+    randomInteger: function(min, max) {
+        var rand = min + Math.random() * (max + 1 - min);
+        rand = Math.floor(rand);
+        return rand;
     }
 }

@@ -23,6 +23,26 @@ module.exports = {
                 .setFooter(client.user.username, client.user.displayAvatarURL);
 
             message.channel.send(embed);
+        } else if (args[0].toLowerCase() === "qq" || args[0].toLowerCase() === "ку" || args[0].toLowerCase() === "привет") {
+            const embed = new RichEmbed()
+                .setColor(roleColor)
+                .setDescription(`__**${message.author.username}**__ приветствует сервер! Я тоже тебя приветствую!`)
+                .setTimestamp()
+                .setImage("https://kartinok.ru/images/29.jpg")
+                .setAuthor(message.author.username, message.author.displayAvatarURL)
+                .setFooter(client.user.username, client.user.displayAvatarURL);
+
+            message.channel.send(embed);
+        } else if (args[0].toLowerCase() === "bb" || args[0].toLowerCase() === "бб" || args[0].toLowerCase() === "пока") {
+            const embed = new RichEmbed()
+                .setColor(roleColor)
+                .setDescription(`__**${message.author.username}**__ прощается с сервером! Эх... Ну, пока. Ждем тебя снова!`)
+                .setTimestamp()
+                .setImage("https://stickeroid.com/uploads/pic/040418/thumb/stickeroid_5bf554d553e98.png")
+                .setAuthor(message.author.username, message.author.displayAvatarURL)
+                .setFooter(client.user.username, client.user.displayAvatarURL);
+
+            message.channel.send(embed);
         } else {
             message.channel.send(args.join(" "));
         }

@@ -50,6 +50,11 @@ module.exports = {
                 .then(m => m.delete(5000));
         }
 
+        if (toBan.id === client.user.id) {
+            return message.reply("Эм... Меня решили забанить? Или моих друзей?.. Так-то подло ♠")
+                .then(m => m.delete(5000));
+        }
+
         const embed = new RichEmbed()
             .setColor("#ff0000")
             .setThumbnail(toBan.user.displayAvatarURL)
@@ -70,7 +75,7 @@ module.exports = {
             if (emoji === "✅") {
                 msg.delete();
 
-                toKick.ban(args.slice(1).join(" "))
+                toBan.ban(args.slice(1).join(" "))
                     .catch(err => {
                         if (err) return message.channel.send(`Так... Что-то пошло не так... Может, ошибка!?`);
                     });

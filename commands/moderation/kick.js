@@ -50,6 +50,11 @@ module.exports = {
                 .then(m => m.delete(5000));
         }
 
+        if (toKick.id === client.user.id) {
+            return message.reply("Эм... Меня решили кикнуть? Или моих друзей?.. Так-то подло ♠")
+                .then(m => m.delete(5000));
+        }
+
         const embed = new RichEmbed()
             .setColor("#ff0000")
             .setThumbnail(toKick.user.displayAvatarURL)

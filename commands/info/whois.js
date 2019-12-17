@@ -9,6 +9,8 @@ module.exports = {
     description: "Возвращает информацию об участнике",
     usage: "[username | id | mention]",
     run: async(client, message, args) => {
+        if (message.deletable) message.delete();
+
         const member = getMember(message, args.join(" "));
 
         const joined = formatDate(member.joinedAt);
@@ -37,7 +39,6 @@ module.exports = {
 
         if (member.user.presence.game) embed.addField("__**Играет:**__", `**> Название:** ${member.user.presence.game.name}`);
 
-        message.delete();
         message.channel.send(embed);
     }
 }

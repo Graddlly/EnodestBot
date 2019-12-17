@@ -9,8 +9,6 @@ module.exports = {
     description: "Выполняет выброс (бан) участника с сервера",
     usage: "<id | mention>",
     run: async(client, message, args) => {
-        const logChannel = message.guild.channels.find(c => c.name === "logs") || message.channel;
-
         if (message.deletable) message.delete();
 
         if (!args[0]) {
@@ -50,14 +48,10 @@ module.exports = {
                 .then(m => m.delete(5000));
         }
 
-        const embed = new RichEmbed()
-            .setColor("#ff0000")
-            .setThumbnail(toBan.user.displayAvatarURL)
-            .setFooter(message.member.displayName, message.author.displayAvatarURL)
-            .setTimestamp()
-            .setDescription(stripIndents `**> Выкинутый (забанненый) участник:** ${toBan} (${toBan.id})
-            **> Был забанен модератором:** ${message.author} (${message.author.id})
-            **> Причина:** ${args.slice(1).join(" ")}`);
+        if (toBan.id === client.user.id) {
+            return message.reply("Эм... Меня решили забанить? Или моих друзей?.. Так-то подло ♠")
+                .then(m => m.delete(5000));
+        }
 
         const promptEmbed = new RichEmbed()
             .setColor("GREEN")
@@ -70,11 +64,10 @@ module.exports = {
             if (emoji === "✅") {
                 msg.delete();
 
-                toKick.ban(args.slice(1).join(" "))
+                toBan.ban(args.slice(1).join(" "))
                     .catch(err => {
                         if (err) return message.channel.send(`Так... Что-то пошло не так... Может, ошибка!?`);
                     });
-                logChannel.send(embed);
             } else if (emoji === "❌") {
                 msg.delete();
 

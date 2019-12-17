@@ -1,5 +1,4 @@
-# Xeolis Bot [Discord]
-# Created by Graddlly
+# Xeolis Bot [Discord] : Created by Graddlly
 
 * [Master: |![Build Status](https://travis-ci.org/XeolisProject/XeolisBot.svg?branch=master)|](https://travis-ci.org/XeolisProject/XeolisBot) 
 * [Dev: |![Build Status](https://travis-ci.org/XeolisProject/XeolisBot.svg?branch=dev)|](https://travis-ci.org/XeolisProject/XeolisBot)

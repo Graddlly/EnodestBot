@@ -165,4 +165,5 @@ process.on('unhandledRejection', (reason) => {
 });
 
 
-client.login(process.env.TOKEN);
+client.login(process.env.TOKEN)
+    .catch(e => console.log(e));

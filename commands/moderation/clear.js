@@ -20,13 +20,14 @@ module.exports = {
         }
 
         let reason = "";
-        if (!args[1]) {
-            reason = "Без причины";
-        } else {
-            reason = `${args.slice(1).join(" ")}`
-        };
+        if (!args[1]) { reason = "Без причины" } else { reason = `${args.slice(1).join(" ")}` };
 
         const number = parseInt(args[0]) + parseInt(1);
+        if (parseInt(number) > 100) number = 100;
+        if (parseInt(number) < 0 || parseInt(number) == 0) {
+            return message.reply("А зачем тогда вызывать эту команду вообще?..")
+                .then(x => x.delete(5000));
+        };
 
         if (!message.member.hasPermission("MANAGE_MESSAGES")) {
             return message.reply("❌ У Вас нет прав на удаление сообщений в текстовых каналах. Если Вы полагаете, что это ошибка - обратитесь к администратору.")

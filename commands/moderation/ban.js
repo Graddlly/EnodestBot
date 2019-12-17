@@ -9,8 +9,6 @@ module.exports = {
     description: "Выполняет выброс (бан) участника с сервера",
     usage: "<id | mention>",
     run: async(client, message, args) => {
-        const logChannel = message.guild.channels.find(c => c.name === "logs") || message.channel;
-
         if (message.deletable) message.delete();
 
         if (!args[0]) {
@@ -55,15 +53,6 @@ module.exports = {
                 .then(m => m.delete(5000));
         }
 
-        const embed = new RichEmbed()
-            .setColor("#ff0000")
-            .setThumbnail(toBan.user.displayAvatarURL)
-            .setFooter(message.member.displayName, message.author.displayAvatarURL)
-            .setTimestamp()
-            .setDescription(stripIndents `**> Выкинутый (забанненый) участник:** ${toBan} (${toBan.id})
-            **> Был забанен модератором:** ${message.author} (${message.author.id})
-            **> Причина:** ${args.slice(1).join(" ")}`);
-
         const promptEmbed = new RichEmbed()
             .setColor("GREEN")
             .setAuthor("Это подтверждение будет действительно в течение 30 секунд...")
@@ -79,7 +68,6 @@ module.exports = {
                     .catch(err => {
                         if (err) return message.channel.send(`Так... Что-то пошло не так... Может, ошибка!?`);
                     });
-                logChannel.send(embed);
             } else if (emoji === "❌") {
                 msg.delete();
 

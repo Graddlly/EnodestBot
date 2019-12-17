@@ -1,6 +1,5 @@
 const { RichEmbed } = require('discord.js');
-const { randomInteger } = require('../../functions.js');
-const superagent = require('superagent');
+const randomPuppy = require('random-puppy');
 
 module.exports = {
     name: "meme",
@@ -19,15 +18,18 @@ module.exports = {
 
             return message.channel.send(memesec);
         } else {
-            let { body } = await superagent
-                .get(`https://api.imgflip.com/get_memes`);
+            const subReddits = ["dankmeme", "meme", "me_irl"];
+            const random = subReddits[Math.floor(Math.random() * subReddits.length)];
 
-            let memeEmbed = new RichEmbed()
+            const img = await randomPuppy(random);
+            const memeEmbed = new RichEmbed()
                 .setColor("ORANGE")
                 .setTitle("🆗 Мемы 🆗")
-                .setImage(body.data.memes[parseInt(randomInteger(0, 99))].url);
+                .setFooter(`Взято с /r/${random}`)
+                .setImage(img)
+                .setURL(`https://reddit.com/r/${random}`);
 
-            return message.channel.send(memeEmbed);
+            message.channel.send(memeEmbed);
         }
     }
 }

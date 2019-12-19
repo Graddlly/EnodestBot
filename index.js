@@ -6,7 +6,7 @@ try {
     var { randomInteger, formatDate } = require("./functions.js");
     var fs = require('fs');
     var mes = require("./mes_events.js");
-    var music = require('discord.js-musicbot-addon');
+    var music = require('discord.js-vibes');
 } catch (e) {
     console.log(e.stack);
     console.log(process.version);
@@ -74,16 +74,10 @@ client.on("message", async message => {
 
 //Music Config
 music.start(client, {
-    youtubeKey: `${process.env.YTKEY}`,
-    botPrefix: `>`,
-    messageNewSong: true,
-    bigPicture: true,
-    defVolume: parseInt("25"),
-    messageHelp: true,
-    ownerID: `${process.env.OWNERID}`,
-    logging: false,
-    musicPresence: true,
-    clearPresence: true
+    youtubeAPIKey: `${process.env.YTKEY}`,
+    botPrefix: '>',
+    maxVolume: 90,
+    botLogging: true
 });
 
 //Event Handlers (Basic System)

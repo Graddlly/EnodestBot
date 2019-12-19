@@ -33,6 +33,7 @@
     "fs": "0.0.1-security",
     "m3u8stream": "^0.6.3",
     "node-fetch": "^2.6.0",
+    "node-opus": "^0.3.3",
     "opusscript": "0.0.7",
     "parse-time": "^0.1.4",
     "random-puppy": "^1.1.0",

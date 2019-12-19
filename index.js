@@ -6,6 +6,7 @@ try {
     var { randomInteger, formatDate } = require("./functions.js");
     var fs = require('fs');
     var mes = require("./mes_events.js");
+    var music = require('discord.js-musicbot-addon');
 } catch (e) {
     console.log(e.stack);
     console.log(process.version);
@@ -31,7 +32,7 @@ config({
 });
 
 client.on("ready", () => {
-    console.log(`Включение систем работы XeolisBot...\nЯ в сети! Мое имя ${client.user.username}\nВерсия Node: ${process.version}`);
+    console.log(`Включение систем работы XeolisBot...\nЯ в сети! Мое имя ${client.user.username}`);
 
     let statuses = [
         "Xeolis Project | Живем, чтобы играть!",
@@ -69,6 +70,20 @@ client.on("message", async message => {
     if (!command) command = client.commands.get(client.aliases.get(cmd));
 
     if (command) command.run(client, message, args);
+});
+
+//Music Config
+music.start(client, {
+    youtubeKey: `${process.env.YTKEY}`,
+    botPrefix: `>`,
+    messageNewSong: true,
+    bigPicture: true,
+    defVolume: parseInt("25"),
+    messageHelp: true,
+    ownerID: `${process.env.OWNERID}`,
+    logging: false,
+    musicPresence: true,
+    clearPresence: true
 });
 
 //Event Handlers (Basic System)
@@ -163,7 +178,6 @@ process.on('unhandledRejection', (reason) => {
     console.error(reason);
     process.exit(1);
 });
-
 
 client.login(process.env.TOKEN)
     .catch(e => console.log(e));

@@ -3,7 +3,7 @@ if (process.version.slice(1).split('.')[0] < 8) throw new Error('Node 8.0.0 or h
 try {
     var { Client, Collection } = require('discord.js');
     var { config } = require('dotenv');
-    var { randomInteger, formatDate } = require("./functions.js");
+    var { randomInteger, formatDate, onVolume } = require("./functions.js");
     var fs = require('fs');
     var mes = require("./mes_events.js");
     var music = require('discord.js-vibes');
@@ -76,7 +76,7 @@ client.on("message", async message => {
 music.start(client, {
     youtubeAPIKey: `${process.env.YTKEY}`,
     botPrefix: '>',
-    maxVolume: 90,
+    maxVolume: onVolume(),
     botLogging: true
 });
 

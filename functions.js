@@ -40,6 +40,7 @@ module.exports = {
     },
 
     onVolume: function(number) {
+        let volume;
         if (isNaN(number) && number) {
             volume = number
         } else {

@@ -6,7 +6,6 @@ try {
     var { randomInteger, formatDate, onVolume } = require("./functions.js");
     var fs = require('fs');
     var mes = require("./mes_events.js");
-    var music = require('discord.js-vibes');
 } catch (e) {
     console.log(e.stack);
     console.log(process.version);
@@ -70,14 +69,6 @@ client.on("message", async message => {
     if (!command) command = client.commands.get(client.aliases.get(cmd));
 
     if (command) command.run(client, message, args);
-});
-
-//Music Config
-music.start(client, {
-    youtubeAPIKey: `${process.env.YTKEY}`,
-    botPrefix: '>',
-    maxVolume: onVolume(),
-    botLogging: true
 });
 
 //Event Handlers (Basic System)

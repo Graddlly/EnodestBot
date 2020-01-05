@@ -37,15 +37,5 @@ module.exports = {
         var rand = min + Math.random() * (max + 1 - min);
         rand = Math.floor(rand);
         return rand;
-    },
-
-    onVolume: function(number) {
-        let volume = 25;
-        if (isNaN(number) && number) {
-            volume = number
-        } else {
-            volume = volume
-        };
-        return parseInt(volume);
     }
 }

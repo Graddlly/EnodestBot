@@ -32,9 +32,6 @@
     "fs": "0.0.1-security",
     "node-fetch": "^2.6.0",
     "parse-time": "^0.1.4",
-    "random-puppy": "^1.1.0",
-    "youtube-search": "^1.1.4",
-    "ytdl-core": "^1.0.3",
-    "ytpl": "^0.1.19"
+    "random-puppy": "^1.1.0"
   }
 }

@@ -40,15 +40,11 @@ module.exports = {
     },
 
     onVolume: function(number) {
-        let volume;
+        let volume = 25;
         if (isNaN(number) && number) {
             volume = number
         } else {
-            if (volume === 0) {
-                volume = 50
-            } else {
-                volume = volume
-            };
+            volume = volume
         };
         return parseInt(volume);
     }

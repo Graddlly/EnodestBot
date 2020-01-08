@@ -1,5 +1,5 @@
-const { RichEmbed } = require('discord.js');
-const randomPuppy = require('random-puppy');
+const { RichEmbed } = require("discord.js");
+const randomPuppy = require("random-puppy");
 
 module.exports = {
     name: "meme",
@@ -10,7 +10,7 @@ module.exports = {
     run: async(client, message, args) => {
         if (message.deletable) message.delete();
 
-        if (args[0] === 'secgus') {
+        if (args[0] === "secgus") {
             let memesec = new RichEmbed()
                 .setColor("RED")
                 .setTitle("Как ты это нашёл?..")
@@ -32,4 +32,4 @@ module.exports = {
             message.channel.send(memeEmbed);
         }
     }
-}
+};

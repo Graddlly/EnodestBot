@@ -1,6 +1,6 @@
-const { getMember, formatDate } = require('../../functions.js');
-const { RichEmbed } = require('discord.js');
-const { stripIndents } = require('common-tags');
+const { getMember, formatDate } = require("../../functions.js");
+const { RichEmbed } = require("discord.js");
+const { stripIndents } = require("common-tags");
 
 module.exports = {
     name: "whois",
@@ -14,7 +14,8 @@ module.exports = {
         const member = getMember(message, args.join(" "));
 
         const joined = formatDate(member.joinedAt);
-        const roles = member.roles
+        const roles =
+            member.roles
             .filter(r => r.id !== message.guild.id)
             .map(r => r)
             .join(", ") || "none";
@@ -24,21 +25,37 @@ module.exports = {
         const embed = new RichEmbed()
             .setFooter(member.displayName, member.user.displayAvatarURL)
             .setThumbnail(member.user.displayAvatarURL)
-            .setColor(member.displayHexColor === "#000000" ? "#ffffff" : member.displayHexColor)
+            .setColor(
+                member.displayHexColor === "#000000" ?
+                "#ffffff" :
+                member.displayHexColor
+            )
 
-        .addField("__**Информация об участнике:**__", stripIndents `**> Имя:** ${member.displayName}
+        .addField(
+            "__**Информация об участнике:**__",
+            stripIndents `**> Имя:** ${member.displayName}
             **> Зашел на сервер:** ${joined}
-            **> Роли:** ${roles}`, true)
+            **> Роли:** ${roles}`,
+            true
+        )
 
-        .addField("__**Информация о пользователе:**__", stripIndents `**> ID:** ${member.user.id}
+        .addField(
+            "__**Информация о пользователе:**__",
+            stripIndents `**> ID:** ${member.user.id}
             **> Имя:** ${member.user.username}
             **> Discord Tag:** ${member.user.tag}
-            **> Создан:** ${created}`, true)
+            **> Создан:** ${created}`,
+            true
+        )
 
         .setTimestamp();
 
-        if (member.user.presence.game) embed.addField("__**Играет:**__", `**> Название:** ${member.user.presence.game.name}`);
+        if (member.user.presence.game)
+            embed.addField(
+                "__**Играет:**__",
+                `**> Название:** ${member.user.presence.game.name}`
+            );
 
         message.channel.send(embed);
     }
-}
+};

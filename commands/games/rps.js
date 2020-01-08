@@ -1,5 +1,5 @@
-const { RichEmbed } = require('discord.js');
-const { promptMessage } = require('../../functions.js');
+const { RichEmbed } = require("discord.js");
+const { promptMessage } = require("../../functions.js");
 
 const chooseArr = ["🗻", "📰", "✂"];
 
@@ -26,22 +26,22 @@ module.exports = {
         const result = await getResult(reacted, botChoice);
         await m.clearReactions();
 
-        embed
-            .setDescription("")
-            .addField(result, `${reacted} vs ${botChoice}`);
+        embed.setDescription("").addField(result, `${reacted} vs ${botChoice}`);
 
         m.edit(embed);
 
         function getResult(me, clientChosen) {
-            if ((me === "🗻" && clientChosen === "✂") ||
+            if (
+                (me === "🗻" && clientChosen === "✂") ||
                 (me === "📰" && clientChosen === "🗻") ||
-                (me === "✂" && clientChosen === "📰")) {
+                (me === "✂" && clientChosen === "📰")
+            ) {
                 return "Ты победил! УРА! 🎂";
             } else if (me === clientChosen) {
                 return "Ничья - тоже игра! Класс! 🎎";
             } else {
                 return "Ты проиграл =( Не расстраивайся, в следующий раз повезет! 🎆";
             }
-        };
+        }
     }
-}
+};

@@ -1,15 +1,19 @@
 module.exports = {
-    getMember: function(message, toFind = '') {
+    getMember: function(message, toFind = "") {
         toFind = toFind.toLowerCase();
 
         let target = message.guild.members.get(toFind);
 
-        if (!target && message.mentions.members) target = message.mentions.members.first();
+        if (!target && message.mentions.members)
+            target = message.mentions.members.first();
 
         if (!target && toFind) {
             target = message.guild.members.find(member => {
-                return member.displayName.toLowerCase().includes(toFind) || member.user.tag.toLowerCase().includes(toFind);
-            })
+                return (
+                    member.displayName.toLowerCase().includes(toFind) ||
+                    member.user.tag.toLowerCase().includes(toFind)
+                );
+            });
         }
 
         if (!target) target = message.member;
@@ -18,7 +22,7 @@ module.exports = {
     },
 
     formatDate: function(date) {
-        return new Intl.DateTimeFormat('ru-RU').format(date);
+        return new Intl.DateTimeFormat("ru-RU").format(date);
     },
 
     promptMessage: async function(message, author, time, validReactions) {
@@ -26,7 +30,8 @@ module.exports = {
 
         for (const reaction of validReactions) await message.react(reaction);
 
-        const filter = (reaction, user) => validReactions.includes(reaction.emoji.name) && user.id === author.id;
+        const filter = (reaction, user) =>
+            validReactions.includes(reaction.emoji.name) && user.id === author.id;
 
         return message
             .awaitReactions(filter, { max: 1, time: time })
@@ -38,4 +43,4 @@ module.exports = {
         rand = Math.floor(rand);
         return rand;
     }
-}
+};

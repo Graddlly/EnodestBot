@@ -1,5 +1,5 @@
-const { RichEmbed } = require('discord.js');
-const { stripIndents } = require('common-tags');
+const { RichEmbed } = require("discord.js");
+const { stripIndents } = require("common-tags");
 
 module.exports = {
     memberJoined: function(membername, memberid, avatar, guildid, createdAt) {
@@ -16,7 +16,14 @@ module.exports = {
         return embed;
     },
 
-    memberLeft: function(membername, memberid, avatar, guildid, joinedAt, createdAt) {
+    memberLeft: function(
+        membername,
+        memberid,
+        avatar,
+        guildid,
+        joinedAt,
+        createdAt
+    ) {
         const embed = new RichEmbed()
             .setTitle("Выход участника с канала")
             .setColor("#ffa500")
@@ -51,7 +58,9 @@ module.exports = {
             .setThumbnail(avatar)
             .setFooter("ID пользователя: " + id)
             .setTimestamp()
-            .setDescription(`**> Выкинутый (забанненый) участник:** ${username.tag} (${id})`);
+            .setDescription(
+                `**> Выкинутый (забанненый) участник:** ${username.tag} (${id})`
+            );
 
         return embed;
     },
@@ -92,7 +101,9 @@ module.exports = {
             .setThumbnail(avatar)
             .setFooter(`ID канала: ${guildid}`)
             .setTimestamp()
-            .setDescription(stripIndents `**> Произведено массовое удаление сообщений на канале:** ${channel} (${channel.id})`);
+            .setDescription(
+                stripIndents `**> Произведено массовое удаление сообщений на канале:** ${channel} (${channel.id})`
+            );
 
         return embed;
     },
@@ -165,4 +176,4 @@ module.exports = {
 
         return embed;
     }
-}
+};

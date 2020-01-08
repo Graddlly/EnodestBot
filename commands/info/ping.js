@@ -7,6 +7,10 @@ module.exports = {
         if (message.deletable) message.delete();
         const msg = await message.channel.send(`🏓 Пингуюсь до сервера...`);
 
-        msg.edit(`🏓 Понг\nЗадержка до сервера: ${Math.floor(msg.createdAt - message.createdAt)}мс\nЗадержка API бота: ${Math.round(client.ping)}ms`);
+        msg.edit(
+            `🏓 Понг\nЗадержка до сервера: ${Math.floor(
+        msg.createdAt - message.createdAt
+      )}мс\nЗадержка API бота: ${Math.round(client.ping)}ms`
+        );
     }
-}
+};

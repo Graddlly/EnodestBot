@@ -1,37 +1,37 @@
 {
-  "name": "xeolisbot",
-  "version": "11.0.0",
-  "description": "Discord bot for servers!",
-  "main": "index.js",
-  "scripts": {
-    "test": "node . || exit"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/XeolisProject/XeolisBot.git"
-  },
-  "keywords": [
-    "Discord",
-    "Bot",
-    "Graddlly",
-    "Xeolis",
-    "Server",
-    "Minecraft"
-  ],
-  "author": "Graddlly",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/XeolisProject/XeolisBot/issues"
-  },
-  "homepage": "https://github.com/XeolisProject/XeolisBot#readme",
-  "dependencies": {
-    "ascii-table": "0.0.9",
-    "common-tags": "^1.8.0",
-    "discord.js": "^11.5.1",
-    "dotenv": "^8.2.0",
-    "fs": "0.0.1-security",
-    "node-fetch": "^2.6.0",
-    "parse-time": "^0.1.4",
-    "random-puppy": "^1.1.0"
-  }
+    "name": "xeolisbot",
+    "version": "11.0.0",
+    "description": "Discord bot for servers!",
+    "main": "index.js",
+    "scripts": {
+        "test": "node . || exit"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/XeolisProject/XeolisBot.git"
+    },
+    "keywords": [
+        "Discord",
+        "Bot",
+        "Graddlly",
+        "Xeolis",
+        "Server",
+        "Minecraft"
+    ],
+    "author": "Graddlly",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/XeolisProject/XeolisBot/issues"
+    },
+    "homepage": "https://github.com/XeolisProject/XeolisBot#readme",
+    "dependencies": {
+        "ascii-table": "0.0.9",
+        "common-tags": "^1.8.0",
+        "discord.js": "^11.5.1",
+        "dotenv": "^8.2.0",
+        "fs": "0.0.1-security",
+        "node-fetch": "^2.6.0",
+        "parse-time": "^0.1.4",
+        "random-puppy": "^1.1.0"
+    }
 }

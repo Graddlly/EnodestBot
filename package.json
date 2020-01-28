@@ -26,6 +26,7 @@
     "homepage": "https://github.com/XeolisProject/XeolisBot#readme",
     "dependencies": {
         "ascii-table": "0.0.9",
+        "beautify": "0.0.8",
         "common-tags": "^1.8.0",
         "discord.js": "^11.5.1",
         "dotenv": "^8.2.0",

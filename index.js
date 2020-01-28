@@ -4,7 +4,7 @@ if (process.version.slice(1).split(".")[0] < 8)
 try {
     var { Client, Collection } = require("discord.js");
     var { config } = require("dotenv");
-    var { randomInteger, formatDate, onVolume } = require("./functions.js");
+    var { randomInteger, formatDate } = require("./functions.js");
     var fs = require("fs");
     var mes = require("./mes_events.js");
 } catch (e) {

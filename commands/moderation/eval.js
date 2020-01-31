@@ -4,6 +4,7 @@ const beautify = require("beautify");
 module.exports = {
     name: "eval",
     aliases: ["e", "сделать", "выполнить", "run"],
+    category: "moderation",
     description: "Компилирует и выполняет код, который вы вписали",
     usage: "<code to eval>",
     run: async(client, message, args) => {
@@ -47,7 +48,8 @@ module.exports = {
                 .addField("Код: ", evaluated)
                 .addField("Образ объекта кода: ", typeof evaluated);
 
-            message.channel.send(embed);
+            if (message.deletable) message.delete();
+            message.channel.send(embed).then(m => m.delete(10000));
         } catch (e) {
             let embed = new RichEmbed()
                 .setColor("#FF0000")
@@ -58,7 +60,8 @@ module.exports = {
                     client.user.displayAvatarURL
                 );
 
-            message.channel.send(embed);
+            if (message.deletable) message.delete();
+            message.channel.send(embed).then(m => m.delete(10000));
         }
     }
 };

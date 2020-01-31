@@ -18,6 +18,8 @@ const client = new Client({
     disableEveryone: true
 });
 
+const prefix = ">";
+
 client.commands = new Collection();
 client.aliases = new Collection();
 
@@ -56,8 +58,6 @@ client.on("ready", () => {
 });
 
 client.on("message", async message => {
-    const prefix = ">";
-
     if (message.author.bot) return;
     if (!message.guild) return;
     if (!message.content.startsWith(prefix)) return;
@@ -147,6 +147,7 @@ client.on("messageUpdate", async(oldMessage, newMessage) => {
     if (!channel) return;
     if (oldMessage.content === newMessage.content) return;
     if (newMessage.author.bot) return;
+    if (channel.type === "undefined") return;
     channel.send(
         mes.messageEdited(
             oldMessage,
@@ -162,6 +163,7 @@ client.on("messageDelete", async message => {
     );
     if (!channel) return;
     if (message.author.bot) return;
+    if (channel.type === "undefined") return;
     channel.send(
         mes.messageDeleted(message, message.author, message.author.displayAvatarURL)
     );
@@ -189,6 +191,7 @@ client.on("channelCreate", async channel => {
         ch => ch.name === `${process.env.LOGS}`
     );
     if (!channellog) return;
+    if (channel.type === "undefined") return;
     channellog.send(
         mes.channelCreated(
             addchan.iconURL,
@@ -208,6 +211,7 @@ client.on("channelDelete", async channel => {
         ch.channels.find(x => x.id === `${channellog.id}`)
     );
     if (!channellog) return;
+    if (channel.type === "undefined") return;
     channellog.send(
         mes.channelDeleted(
             addchan.iconURL,

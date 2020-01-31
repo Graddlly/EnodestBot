@@ -4,7 +4,7 @@ const { getMember } = require("../../functions.js");
 module.exports = {
     name: "love",
     aliases: ["affinity", "любовь", "стачки"],
-    category: "fun",
+    category: "games",
     description: "Высчитывает вероятность любовных отношений с другим участником канала",
     usage: "[mention | id | username]",
     run: async(client, message, args) => {

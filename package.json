@@ -1,10 +1,12 @@
 {
     "name": "xeolisbot",
-    "version": "11.0.0",
+    "version": "12.0.1",
     "description": "Discord bot for servers!",
     "main": "index.js",
     "scripts": {
-        "test": "node . || exit"
+        "start": "node .",
+        "pretest": "eslint --ignore-path .gitignore .",
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
         "type": "git",
@@ -25,14 +27,23 @@
     },
     "homepage": "https://github.com/XeolisProject/XeolisBot#readme",
     "dependencies": {
-        "ascii-table": "0.0.9",
         "beautify": "0.0.8",
+        "cheerio": "^1.0.0-rc.3",
         "common-tags": "^1.8.0",
-        "discord.js": "^11.5.1",
-        "dotenv": "^8.2.0",
-        "fs": "0.0.1-security",
+        "discord.js": "github:discordjs/discord.js",
+        "discord.js-commando": "github:discordjs/Commando",
+        "ffmpeg-static": "^2.7.0",
+        "iso-639-1": "^2.1.0",
         "node-fetch": "^2.6.0",
+        "opusscript": "0.0.7",
         "parse-time": "^0.1.4",
-        "random-puppy": "^1.1.0"
+        "random-puppy": "^1.1.0",
+        "simple-youtube-api": "^5.2.1",
+        "ytdl-core": "^1.0.6"
+    },
+    "devDependencies": {
+        "babel-eslint": "^10.0.3",
+        "nodemon": "^1.19.4",
+        "prettier": "^1.19.1"
     }
 }
